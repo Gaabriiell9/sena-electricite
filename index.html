@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Électricien Bordeaux</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- Header / Navigation -->
+<header>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="img/logoOfficiel.png" alt="Logo Sena Electricité">
+            <span class="logo-text orbitron">Sena Électricité</span>
+        </div>               
+        <ul class="nav-links">
+            <li><a href="#hero" class="active">Accueil</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#apropos">À propos</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="burger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </nav>
+</header>
+
+<!-- Hero Section -->
+<section id="hero" class="hero fade-in">
+    <div class="hero-content">
+        <h1>Votre électricien de confiance à Bordeaux</h1>
+        <p>Installation, dépannage, mise aux normes – rapide et sécurisé.</p>
+        <a href="#contact" class="btn" id="btn-devis">Demandez un devis</a>
+    </div>
+</section>
+
+<!-- Services + Réalisations Section -->
+<!-- Services + Réalisations Section -->
+<section id="services" class="services fade-in">
+    <h2>Nos Services & Réalisations</h2>
+
+    <div class="services-grid">
+        <!-- Installation électrique -->
+        <div class="service-item fade-in">
+            <div class="service-caption">
+                <p>Installation complète du tableau électrique</p>
+            </div>
+            <div class="service-image">
+                <img src="img/back/IMG_1105.JPG" alt="Installation électrique">
+            </div>
+        </div>
+
+        <!-- Dépannage urgent -->
+        <div class="service-item reverse fade-in">
+            <div class="service-caption">
+                <p>Intervention rapide pour pannes électriques</p>
+            </div>
+            <div class="service-image">
+                <img src="img/back/depannage.jpg" alt="Dépannage électrique">
+            </div>
+        </div>
+
+        <!-- Vidéo réalisation -->
+        <div class="service-item fade-in">
+            <div class="service-caption">
+                <p>Mise aux normes et sécurisation des installations</p>
+            </div>
+            <div class="service-video">
+                <video controls autoplay muted loop playsinline>
+                    <source src="video/fondvideo.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+
+        <!-- Nouvelle photo 1 -->
+        <div class="service-item fade-in">
+            <div class="service-caption">
+                <p>Installation de prises et interrupteurs</p>
+            </div>
+            <div class="service-image">
+                <img src="img/IMG-20191223-WA0000.JPG" alt="Photo complémentaire 1">
+            </div>
+        </div>
+
+        <!-- Nouvelle photo 2 -->
+        <div class="service-item fade-in">
+            <div class="service-caption">
+                <p>Éclairage intérieur et extérieur</p>
+            </div>
+            <div class="service-image">
+                <img src="img/IMG-20200203-WA0003.JPG" alt="Photo complémentaire 2">
+            </div>
+        </div>
+
+        <!-- Nouvelle photo 3 -->
+        <div class="service-item fade-in">
+            <div class="service-caption">
+                <p>Travaux sur tableau électrique et câblage</p>
+            </div>
+            <div class="service-image">
+                <img src="img/IMG-20200203-WA0001.JPG" alt="Photo complémentaire 3">
+            </div>
+        </div>
+    </div>
+<!-- Nouvelle photo 4 -->
+<!-- Conteneur pour les deux nouvelles photos -->
+<div id="nouvelles-photos" class="services-grid">
+    <!-- Nouvelle photo 4 -->
+    <div id="photo4" class="service-item fade-in">
+        <div class="service-caption">
+            <p>Tableaux électriques modernes</p>
+        </div>
+        <div class="service-image">
+            <img src="img/IMG-20200407-WA0014.JPG" alt="Photo complémentaire 4">
+        </div>
+    </div>
+
+    <!-- Nouvelle photo 5 -->
+    <div id="photo5" class="service-item fade-in">
+        <div class="service-caption">
+            <p>Éclairage extérieur sécurisé</p>
+        </div>
+        <div class="service-image">
+            <img src="img/IMG-20200203-WA0003.JPG" alt="Photo complémentaire 5">
+        </div>
+    </div>
+</div>
+
+
+
+</section>
+<!-- À propos Section -->
+<section id="apropos" class="apropos fade-in">
+    <h2>À propos de nous</h2>
+    <p>Électricien Bordeaux est une entreprise artisanale spécialisée dans les installations et dépannages électriques depuis plus de 10 ans. Notre équipe qualifiée assure des interventions rapides, fiables et conformes aux normes en vigueur.</p>
+</section>
+
+<!-- Section Contact -->
+<section id="contact" class="contact fade-in">
+    <h2>Contactez-nous</h2>
+    <div class="contact-content">
+        
+        <!-- Formulaire avec Formspree -->
+        <form id="contactForm" action="https://formspree.io/f/mkgqrnyb" method="POST">
+            <input type="text" name="name" placeholder="Nom" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <textarea name="message" placeholder="Message" required></textarea>
+            <button type="submit" class="btn">Envoyer</button>
+        </form>        
+
+        <!-- Infos contact -->
+        <div class="contact-info">
+            <p>Téléphone : 06 12 34 56 78</p>
+            <p>Email : contact@electricien-bordeaux.fr</p>
+            <p>Adresse : 12 Rue des Électriciens, Bordeaux</p>
+        </div>
+    </div>
+</section>
+ 
+<script>
+// Gestion AJAX Formspree
+const form = document.getElementById('contactForm');
+
+form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+    });
+
+    if (res.ok) {
+        alert('✅ Merci ! Votre message a bien été envoyé.');
+        form.reset();
+    } else {
+        alert('❌ Oups, une erreur est survenue. Réessayez plus tard.');
+    }
+});
+</script>
+
+
+<!-- Footer -->
+<footer>
+    <p>&copy; 2025 Électricien Bordeaux. Tous droits réservés.</p>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>

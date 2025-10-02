@@ -1,0 +1,391 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap');
+
+.orbitron {
+    font-family: 'Orbitron', sans-serif;
+    color: #FFD700;
+    font-size: 1.6rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-shadow: 0 0 5px rgba(255, 215, 0, 0.6);
+}
+
+/* Reset et base */
+* {margin:0; padding:0; box-sizing:border-box; font-family: 'Arial', sans-serif;}
+body {line-height:1.6; background:#f7f7f7; color:#333; scroll-behavior: smooth;}
+
+/* Navbar */
+.navbar {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:1rem 2rem;
+    background:#001F3F; 
+    color:white;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+/* Effet lumineux sur le texte du logo */
+.logo-text.lightup {
+    color: #ffea00;
+    text-shadow:
+        0 0 5px #fff,
+        0 0 15px #ffea00,
+        0 0 30px #ffea00,
+        0 0 50px #ffea00;
+    transition: text-shadow 0.2s ease, color 0.2s ease;
+    cursor: pointer;
+}
+
+/* Style des petits éclairs */
+.spark {
+    position: absolute;
+    width: 2px;
+    height: 10px;
+    background: #fff;
+    opacity: 0.8;
+    transform: rotate(20deg);
+    pointer-events: none;
+    animation: sparkAnim 2s linear forwards; /* durée 2 secondes */
+}
+
+@keyframes sparkAnim {
+    0% { transform: translateY(0) rotate(20deg); opacity: 1; }
+    50% { transform: translateY(-50px) rotate(20deg); opacity: 0.8; }
+    100% { transform: translateY(-100px) rotate(20deg); opacity: 0; }
+}
+
+
+.navbar .logo {font-size:1.5rem; font-weight:bold;}
+
+.nav-links {list-style:none; display:flex;}
+.nav-links li {margin-left:2rem;}
+.nav-links li a {color:white; text-decoration:none; font-weight:bold;}
+.nav-links li a.active,
+.nav-links li a:hover {border-bottom:2px solid #0052cc;}
+.nav-links li a {
+    position: relative;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0.3rem 0;
+    transition: color 0.3s ease;
+}
+
+.nav-links li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0;
+    height: 2px;
+    background: #FFD700; /* Doré */
+    transition: width 0.3s ease;
+}
+
+.nav-links li a:hover {
+    color: #FFD700;
+}
+
+.nav-links li a:hover::after {
+    width: 100%;
+}
+
+.burger {display:none; flex-direction:column; cursor:pointer;}
+.burger div {width:25px; height:3px; background:white; margin:4px;}
+
+/* Logo */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+}
+
+.logo img {
+    height: 100px;
+    width: auto;
+    border-radius: 50%;
+}
+
+.logo-text {
+    font-family: 'Orbitron', sans-serif;
+    color: #d4a642ce;
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-shadow: 0 0 5px rgba(82, 69, 0, 0.6);
+}
+
+/* Hero */
+.hero {
+    position: relative;
+    height: 100vh;
+    background: url('../img/fondelec.JPG') no-repeat center center;
+    background-size: cover;
+    text-align: center;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 2rem;
+    z-index: 0;
+}
+
+.hero h1, .hero p, .btn {position: relative; z-index: 2;}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 31, 63, 0.5);
+    z-index: 1;
+}
+
+.hero h1 {font-size:2.5rem; margin-bottom:1rem; color:#ffffff;}
+.hero p {font-size:1.2rem; margin-bottom:2rem;}
+.btn {
+    display:inline-block;
+    background:#ffcc00;
+    color:#001F3F;
+    padding:.8rem 1.5rem;
+    text-decoration:none;
+    font-weight:bold;
+    border-radius:5px;
+}
+.btn:hover {background:#ffdd33;}
+
+/* Services + Réalisations */
+.services {
+    padding: 4rem 2rem;
+    position: relative;
+    z-index: 0;
+}
+
+.services::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at top left, rgba(255, 215, 0, 0.2), transparent 70%),
+                radial-gradient(circle at bottom right, rgba(255, 215, 0, 0.15), transparent 70%);
+    z-index: -1;
+}
+
+.services h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 3rem;
+    color: #001F3F;
+    grid-column: 1 / -1;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+/* Style des cartes */
+.service-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: left;
+    border-radius: 12px;
+    padding: 1rem;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.service-caption {
+    text-align: center;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #001F3F;
+}
+
+/* Centrage image / vidéo */
+.service-image,
+.service-video {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.service-item img,
+.service-item video {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    object-fit: cover;
+}
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;  /* Limite la largeur totale de la grille */
+    margin: 0 auto;     /* Centre la grille */
+}
+
+.service-item {
+    max-width: 350px;  /* Limite la largeur de chaque carte */
+    margin: 0 auto;    /* Centre les cartes dans leurs colonnes */
+}
+
+
+/* Texte et paragraphes */
+.service-item h3 {margin-bottom: 0.5rem; font-size: 1.2rem; color: #001F3F;}
+.service-item p {flex-grow: 1; margin-bottom: 1rem;}
+
+/* Vidéo */
+.service-video video {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    object-fit: cover;
+}
+
+#nouvelles-photos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;          /* espace entre les colonnes */
+    margin-top: 2rem;   /* <-- ajoute un peu d’espace au-dessus */
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* Ajustement des nouvelles photos pour qu'elles soient comme les autres */
+/* Conteneur des deux nouvelles photos */
+/* Conteneur des deux nouvelles photos */
+/* Conteneur des deux nouvelles photos */
+/* Conteneur des deux nouvelles photos */
+
+
+/* S'assurer que les nouvelles photos ont la même taille que les autres */
+
+.service-video {max-width: 800px; margin: 0 auto 4rem auto; padding: 0 1rem; text-align: center;}
+
+/* À propos */
+.apropos {background:#f0f4ff; text-align:center; padding:4rem 2rem;}
+.apropos h2 {color:#001F3F; margin-bottom:1rem; font-size:2rem;}
+.apropos p {max-width:800px; margin:0 auto; font-size:1.1rem;}
+
+/* Contact */
+.contact {padding:4rem 2rem; text-align:center;}
+.contact h2 {color:#001F3F; font-size:2rem; margin-bottom:2rem;}
+.contact-content {display:flex; justify-content:space-around; flex-wrap:wrap; gap:2rem;}
+.contact-content form {flex:1; min-width:280px; max-width:500px; background:white; padding:2rem; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,.1);}
+.contact-content form input,
+.contact-content form textarea {width:100%; padding:.7rem; margin-bottom:1rem; border-radius:5px; border:1px solid #ccc; font-size:1rem;}
+.contact-content form textarea {
+    resize: none;       /* empêche le redimensionnement */
+    height: 150px;      /* hauteur fixe */
+    min-height: 100px;
+    max-height: 100px;
+}
+.contact-content .btn {width:100%;}
+.contact-info {flex:1; min-width:250px; max-width:400px; background:#f0f4ff; padding:2rem; border-radius:10px; text-align:left;}
+.contact-info p {margin-bottom:1rem;}
+
+/* Footer */
+footer {text-align:center; padding:1rem; background:#222; color:white;}
+
+/* Animations fade-in */
+.fade-in {opacity:0; transform:translateY(30px); transition:opacity 0.8s ease-out, transform 0.8s ease-out;}
+.fade-in.show {opacity:1; transform:translateY(0);}
+
+/* Responsive */
+@media (max-width: 768px){
+    /* Logo et burger */
+    .logo img {height: 75px;}
+    .logo span {font-size: 1.4rem;}
+    .burger {display:flex;}
+
+    /* Navbar */
+    .nav-links {
+        flex-direction: column;
+        background:#001F3F;
+        position:absolute;
+        top:60px;
+        right:0;
+        width:200px;
+        padding:1rem;
+        border-radius:5px;
+
+        /* Animation */
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition: max-height 0.5s ease, opacity 0.5s ease;
+    }
+
+    .nav-links.show {
+        max-height: 500px;
+        opacity: 1;
+    }
+
+    /* Service items */
+    .service-item {
+        flex-direction: column;
+    }
+    .service-item.reverse {
+        flex-direction: column;
+    }
+
+    /* Services grid */
+    .services-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+}
+
+/* Lightbox */
+.lightbox-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 2000;
+}
+
+.lightbox-overlay.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.lightbox-overlay img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    animation: zoomIn 0.3s ease;
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.7); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
