@@ -291,7 +291,7 @@ body {line-height:1.6; background:#f7f7f7; color:#333; scroll-behavior: smooth;}
 .contact-content {display:flex; justify-content:space-around; flex-wrap:wrap; gap:2rem;}
 .contact-content form {flex:1; min-width:280px; max-width:500px; background:white; padding:2rem; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,.1);}
 .contact-content form input,
-.contact-content form textarea {width:100%; padding:.7rem; margin-bottom:1rem; border-radius:5px; border:1px solid #ccc; font-size:1rem;}
+.contact-content form textarea {width:100%; padding:.7rem; margin-bottom:1rem; border-radius:5px; border:1px solid #000; font-size:1rem;}
 .contact-content form textarea {
     resize: none;       /* empêche le redimensionnement */
     height: 150px;      /* hauteur fixe */
